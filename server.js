@@ -1,19 +1,20 @@
 //Importing dependencies
 const mongoose = require('mongoose');
+const mongodb = require("mongodb");
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 require('dotenv').config();
 
-mongoose.connect(process.env.DB_CONN);
+// mongoose.connect(process.env.DB_CONN);
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
-});
+mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
 
 const userRoute = require('./routes/users');
 
