@@ -10,6 +10,11 @@ mongoose.connect(process.env.DB_CONN);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 const userRoute = require('./routes/users');
 
 // Handling routes
