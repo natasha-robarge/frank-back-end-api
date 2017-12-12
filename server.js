@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.DB_CONN);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
