@@ -23,7 +23,9 @@ app.post('/signup', userRoute.saveUser);
 
 // Listen to port
 
-const server = app.listen(3000 || process.env.PORT, () => {
+var PORT = process.env.PORT || 3000
+
+const server = app.listen(PORT, () => {
   console.log(`Listening on port 3000`);
 })
 
