@@ -10,7 +10,7 @@ function saveUser(req, res) {
     if (err) {
       console.log(`Error at ${err}`);
     } else {
-      console.log(`Successful save, ${data}`);
+      console.log(`Data received successfully, ${data}`);
     }
   });
 

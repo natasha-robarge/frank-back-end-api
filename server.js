@@ -10,16 +10,17 @@ require('dotenv').config();
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_BROWN_URI);
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Handling routes
-
-app.get('/', (req, res) => {
-  res.send('Howdy');
-})
 
 const userRoute = require('./routes/users');
 
 app.post('/signup', userRoute.saveUser);
+
+app.get('/', (req, res) => {
+  res.send('Howdy');
+})
 
 // Listen to port
 
