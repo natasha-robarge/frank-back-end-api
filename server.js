@@ -13,10 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const userRoute = require('./routes/users');
 
 // Handling routes
-app.post('/signup', userRoute.saveUser);
 
 app.get('/', (req, res) => {
-  res.send('Check out our /signup page');
+  res.send('Howdy');
 })
 
 // Listen to port
