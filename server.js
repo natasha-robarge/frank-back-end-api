@@ -1,4 +1,5 @@
 //Importing dependencies
+const mongodb = require('mongodb');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -22,7 +23,7 @@ app.post('/signup', userRoute.saveUser);
 
 // Listen to port
 
-const server = app.listen(process.env.PORT || 3000, () => {
+const server = app.listen(3000 || process.env.PORT, () => {
   console.log(`Listening on port 3000`);
 })
 
