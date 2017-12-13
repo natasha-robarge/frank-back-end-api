@@ -17,5 +17,5 @@ function saveUser(req, res) {
 }
 
 module.exports = {
-  saveUser
+  saveUser: saveUser
 }
